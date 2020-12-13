@@ -4,7 +4,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "target": "es6",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
+    "strict": false,
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
@@ -15,13 +16,19 @@
         "node_modules/*",
         "src/types/*"
       ]
-    }
+    },
+    "typeRoots": [
+      "@types",
+      "node_modules/@types",
+    ]
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "@types/express/index.d.ts"
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "dist"
   ]
 }
