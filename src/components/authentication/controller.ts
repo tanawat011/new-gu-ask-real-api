@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { generateAccessToken } from '../../helpers'
+import { generateAccessToken } from '@helpers'
 
 export default (req: Request, res: Response) => {
   try {

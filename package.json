@@ -4,17 +4,21 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s . -o ./dist",
     "dev": "nodemon",
+    "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tanawat Pinthongpan",
   "license": "ISC",
   "dependencies": {
-    "@types/jsonwebtoken": "^8.5.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
-    "@types/express": "^4.17.9"
+    "@types/express": "^4.17.9",
+    "@types/jsonwebtoken": "^8.5.0",
+    "tsconfig-paths": "^3.9.0",
+    "tscpaths": "^0.0.9"
   }
 }

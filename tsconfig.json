@@ -3,15 +3,22 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
     "target": "es6",
-    "noImplicitAny": false,
-    "strict": false,
+    "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "baseUrl": ".",
+    "rootDir": ".",
+    "baseUrl": "src",
     "paths": {
+      "@components/*": ["components/*"],
+      "@entities": ["entities"],
+      "@entities/*": ["entities/*"],
+      "@helpers": ["helpers"],
+      "@helpers/*": ["helpers/*"],
       "*": [
         "node_modules/*",
         "src/types/*"
@@ -19,12 +26,11 @@
     },
     "typeRoots": [
       "@types",
-      "node_modules/@types",
+      "node_modules/@types"
     ]
   },
   "include": [
-    "src/**/*",
-    "@types/express/index.d.ts"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
