@@ -1,0 +1,41 @@
+version: "3.5"
+
+services:
+  api:
+    container_name: new_gu_ask_real_api_local
+    images: new_gu_ask_real_api_local
+    build:
+      context: ..
+      dockerfile: ./docker/files/local.Dockerfile
+    restart: always
+    port:
+      - 3100:3000
+    depends_on:
+      - db
+    env_file:
+      - ../envs/local.env
+    volumns:
+      - /usr/app/node_modules
+      - ..:/usr/app
+    networks:
+      - new_gu_ask_real_local
+
+  db:
+    container_name: new_gu_ask_real_mysql_local
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci
+    restart: always
+    ports:
+      - 3136:3306
+    environment:
+      MYSQL_DATABASE: new_gu_ask_real
+      MYSQL_USER: gar_root
+      MYSQL_PASSWORD: "@Ta0835751891"
+      MYSQL_ROOT_PASSWORD: "@Ta0835751891"
+    volumes:
+      - ../database:/var/lib/mysql
+    networks:
+      - new_gu_ask_real_local
+
+networks:
+  new_gu_ask_real_local:
