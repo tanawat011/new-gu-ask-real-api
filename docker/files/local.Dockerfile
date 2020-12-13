@@ -1,5 +1,9 @@
 FROM node:15-alpine
 
+RUN apk add bash
+
+WORKDIR /usr/app
+
 COPY . .
 
 RUN yarn
