@@ -3,18 +3,18 @@ version: "3.5"
 services:
   api:
     container_name: new_gu_ask_real_api_local
-    images: new_gu_ask_real_api_local
+    image: new_gu_ask_real_api_local
     build:
       context: ..
       dockerfile: ./docker/files/local.Dockerfile
     restart: always
-    port:
+    ports:
       - 3100:3000
     depends_on:
       - db
     env_file:
       - ../envs/local.env
-    volumns:
+    volumes:
       - /usr/app/node_modules
       - ..:/usr/app
     networks:
